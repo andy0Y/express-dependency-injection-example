@@ -11,7 +11,7 @@ export const config = {
     },
     "serverConfig": {
 
-        url: process.env.SERVER_URL,
+        "url": process.env.SERVER_URL,
         "listen": process.env.SERVER_PORT
     }
 };

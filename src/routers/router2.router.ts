@@ -46,7 +46,12 @@ export class Router2 extends AbstractRouter {
     })
     public saveAll(req: Request, res: Response, args: {params: null, body: Array<ExampleModel>}) {
 
-        const validated = args.body.reduce((acc, model) => acc && (model instanceof ExampleModel), true)
+        const validated = args.body.reduce((acc, model) => {
+            
+            return acc && model.property1 !== undefined
+            && model.property2 !== undefined
+        
+        }, true);
         if(validated) {
 
             from(this.repo.getModel().insertMany(args.body))
